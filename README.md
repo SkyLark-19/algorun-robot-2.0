@@ -4,8 +4,11 @@
 
 *Autonomous micromouse with floodfill algorithm and speed optimization*
 
-
 [![SLIIT ROBOFEST 2025](https://img.shields.io/badge/Competition-SLIIT%20ROBOFEST%202025-0066cc?style=for-the-badge&logoColor=white)](http://www.robofest.lk)
+
+<img src="Images/robot.jpg" alt="AlgoRun Robot 2.0" width="500"/>
+
+
 
 </div>
 
