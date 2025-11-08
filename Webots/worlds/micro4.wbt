@@ -1,0 +1,214 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.4777495146401547 -0.4585642652980914 -0.7493158318444355 4.420508364440562
+  position 0.11588218009041938 -3.146512040918139 6.045881689680449
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 4 4
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+  wallHeight 0.001
+}
+Robot {
+  translation -1.44 -1.44 0.011016
+  rotation 0 0 1 1.57
+  children [
+    DEF Body Pose {
+      translation 0 0 0.035
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.093 0.088 0.05
+          }
+        }
+      ]
+    }
+    DEF ds0 Solid {
+      translation 0.0465 -0.044 0.025
+      rotation 0 0 -1 1.57
+      children [
+        DistanceSensor {
+          name "ds0"
+          lookupTable [
+            0 0 0
+            1 1 1
+          ]
+        }
+      ]
+    }
+    DEF ds1 Solid {
+      translation 0.0465 -0.022 0.025
+      rotation 0 0 1 -0.77
+      children [
+        DistanceSensor {
+          name "ds1"
+          lookupTable [
+            0 0 0
+            1 1 1
+          ]
+        }
+      ]
+    }
+    DEF ds2 Solid {
+      translation 0.0465 0 0.025
+      children [
+        DistanceSensor {
+          name "ds2"
+          lookupTable [
+            0 0 0
+            1 1 1
+          ]
+        }
+      ]
+    }
+    DEF ds3 Solid {
+      translation 0.0465 0.022 0.025
+      rotation 0 0 1 0.77
+      children [
+        DistanceSensor {
+          name "ds3"
+          lookupTable [
+            0 0 0
+            1 1 1
+          ]
+        }
+      ]
+    }
+    DEF ds4 Solid {
+      translation 0.0465 0.044 0.025
+      rotation 0 0 1 1.57
+      children [
+        DistanceSensor {
+          name "ds4"
+          lookupTable [
+            0 0 0
+            1 1 1
+          ]
+        }
+      ]
+    }
+    DEF right HingeJoint {
+      jointParameters HingeJointParameters {
+        position 0.31904382509813367
+        axis 0 1 0
+        anchor -0.026 -0.039 0.015
+      }
+      device [
+        PositionSensor {
+          name "pos1"
+        }
+        RotationalMotor {
+          name "motor1"
+        }
+      ]
+      endPoint Solid {
+        translation -0.026 -0.039 0.015
+        rotation 1 2.336443003554709e-15 7.460910431519238e-16 1.5699999999999978
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.022
+            }
+          }
+        ]
+        boundingObject USE wheel
+        physics DEF wheel_physics Physics {
+          mass 3
+        }
+      }
+    }
+    DEF left HingeJoint {
+      jointParameters HingeJointParameters {
+        position 0.31904359764229506
+        axis 0 1 0
+        anchor -0.026 0.039 0.015
+      }
+      device [
+        PositionSensor {
+          name "pos2"
+        }
+        RotationalMotor {
+          name "motor2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.026 0.039 0.015
+        rotation 1 1.4529141366642721e-15 4.71215395674899e-16 1.5699999999999987
+        children [
+          USE wheel
+        ]
+        boundingObject USE wheel
+        physics USE wheel_physics
+      }
+    }
+    DEF caster_wheel Solid {
+      translation 0.029 0 0.01
+      children [
+        DEF caster Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.3 0.3
+          }
+          geometry Sphere {
+            radius 0.015
+          }
+        }
+      ]
+      boundingObject USE caster
+      physics Physics {
+        mass 0.01
+      }
+    }
+  ]
+  boundingObject USE Body
+  physics Physics {
+  }
+  controller "N03"
+}
+Solid {
+  rotation 1 0 0 1.57
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Mesh {
+        url [
+          "../path/Untitled22.obj"
+        ]
+      }
+    }
+  ]
+  name "solid(7)"
+  boundingObject Mesh {
+    url [
+      "../path/Untitled22.obj"
+    ]
+  }
+  locked TRUE
+}
