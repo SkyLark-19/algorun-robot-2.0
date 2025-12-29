@@ -24,6 +24,13 @@
 
 ---
 
+## 🎥 Demo Videos
+
+- **Full Maze Exploration** - https://www.youtube.com/shorts/Jc3D0NSLft4
+- **CurveTurn Test** - https://www.youtube.com/shorts/kTvfO4EWvSk
+
+---
+
 ## 🔩 Hardware
 
 **Sensors:**
